@@ -9,6 +9,7 @@ const features = [
     description: 'Most repairs done same-day. We value your time and get your devices back to you quickly.',
     color: 'from-yellow-400 to-amber-500',
     bgColor: 'bg-amber-50',
+    iconColor: '#D97706',
   },
   {
     icon: (
@@ -20,6 +21,7 @@ const features = [
     description: 'Quality service doesn\'t have to break the bank. We offer competitive prices for all services.',
     color: 'from-green-400 to-emerald-500',
     bgColor: 'bg-green-50',
+    iconColor: '#059669',
   },
   {
     icon: (
@@ -31,6 +33,7 @@ const features = [
     description: 'We use only quality and genuine parts to ensure your device lasts longer after repair.',
     color: 'from-blue-400 to-blue-600',
     bgColor: 'bg-blue-50',
+    iconColor: '#2563EB',
   },
   {
     icon: (
@@ -42,6 +45,7 @@ const features = [
     description: 'Built a reputation as the go-to electronics technician in the neighborhood for years.',
     color: 'from-purple-400 to-purple-600',
     bgColor: 'bg-purple-50',
+    iconColor: '#7C3AED',
   },
   {
     icon: (
@@ -53,6 +57,7 @@ const features = [
     description: 'Walk in with a problem, walk out with a solution. Most services completed the same day.',
     color: 'from-rose-400 to-pink-500',
     bgColor: 'bg-rose-50',
+    iconColor: '#DB2777',
   },
 ]
 
@@ -62,8 +67,12 @@ function FeatureCard({ feature, index }) {
       className="animate-on-scroll group card p-6 md:p-8 hover:-translate-y-2"
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
-        <div className={`bg-gradient-to-br ${feature.color} bg-clip-text text-transparent`}>
+      {/* Icon - Visible with color */}
+      <div 
+        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
+        style={{ backgroundColor: feature.bgColor.replace('bg-', '').includes('50') ? feature.bgColor : feature.bgColor }}
+      >
+        <div style={{ color: feature.iconColor }}>
           {feature.icon}
         </div>
       </div>
